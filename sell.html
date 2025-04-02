@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register | CelebStore</title>
+    <link rel="stylesheet" href="sell.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <div class="header">
+        <div class="container">
+            <div class="navbar">
+                <div class="logo">
+                    <img src="logo.jpg" width="25px">
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="samp2.html">Products</a></li>
+                        <li><a href="sell.html">Sell</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="login.html">Account</a></li>
+                    </ul>
+                </nav>
+                <img src="cart.png" width="25px" height="25px">
+            </div>
+        </div>
+    </div>
+
+    <!-- Registration Form Section -->
+    <div class="register-container">
+        <div class="small-container">
+            <h2>Create an Account</h2>
+            <form action="register-action.php" method="POST">
+                <!-- Email Section -->
+                <div class="input-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                </div>
+
+                <!-- OTP Section (Initially Hidden) -->
+                <div class="input-group" id="otp-section" style="display:none;">
+                    <label for="otp">Enter OTP</label>
+                    <input type="text" id="otp" name="otp" placeholder="Enter OTP" required>
+                </div>
+
+                <!-- Send OTP Button -->
+                <button type="button" id="send-otp-btn" class="btn">Send OTP</button>
+
+                <!-- Register Button -->
+                <button type="submit" id="register-btn" class="btn" style="display:none;">Register</button>
+                
+                <div class="form-links">
+                    <a href="login.html">Already have an account? Login</a>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="footer-col1">
+                    <h3>Download Our App</h3>
+                    <p>Download App for Android and iOS mobile phones.</p>
+                    <div class="app-logo">
+                        <img src="app_img.png" alt="App">
+                    </div>
+                </div>
+                <div class="footer-col3">
+                    <h3>Useful Links</h3>
+                    <ul>
+                        <li>Coupons</li>
+                        <li>Blog Post</li>
+                        <li>Return Policy</li>
+                        <li>Join Affiliate</li>
+                    </ul>
+                </div>
+                <div class="footer-col4">
+                    <h3>Follow Us</h3>
+                    <ul>
+                        <li>Facebook</li>
+                        <li>Twitter</li>
+                        <li>Instagram</li>
+                        <li>YouTube</li>
+                    </ul>
+                </div>
+            </div>
+            <hr>
+            <p class="copyright"><a href="https://www.youtube.com/c/EasyTutorialsVideo?sub_confirmation=1">Copyright 2020 - Easy Tutorials</a></p>
+        </div>
+    </div>
+
+    <script>
+        // JavaScript to handle OTP generation and form display
+        document.getElementById('send-otp-btn').addEventListener('click', function() {
+            const email = document.getElementById('email').value;
+            if (validateEmail(email)) {
+                // Simulate OTP send (you would integrate real OTP logic here)
+                alert('OTP sent to ' + email);
+                document.getElementById('otp-section').style.display = 'block';
+                document.getElementById('register-btn').style.display = 'block';
+                document.getElementById('send-otp-btn').style.display = 'none';
+            } else {
+                alert('Please enter a valid email address');
+            }
+        });
+
+        function validateEmail(email) {
+            const regex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+            return regex.test(email);
+        }
+    </script>
+</body>
+</html>
